@@ -70,8 +70,8 @@ export default function Profile({ route }) {
 
     const logOut = async () => {
         try {
+            await AsyncStorage.clear()
             const states = {
-                ...localState,
                 isOnboardingCompleted: false,
             }
             await AsyncStorage.setItem('state', JSON.stringify(states));

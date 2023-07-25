@@ -49,6 +49,15 @@ export default function App() {
                 header: props => <CustomHeader {...props} />,
               }}
             />
+            <Stack.Screen
+              //navigationKey={state.isOnboardingCompleted ? 'onBoard' : 'notOnBoard'}
+              name='Profile'
+              component={ProfileScreen}
+              initialParams={{ setState }}
+              options={{
+                header: props => <CustomHeader {...props} />,
+              }}
+            />
           </>
         ) : (
           // User is NOT signed in
@@ -57,15 +66,7 @@ export default function App() {
 
           </>
         )}
-        <Stack.Screen
-          navigationKey={state.isOnboardingCompleted ? 'onBoard' : 'notOnBoard'}
-          name='Profile'
-          component={ProfileScreen}
-          initialParams={{ setState }}
-          options={{
-            header: props => <CustomHeader {...props} />,
-          }}
-        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -74,7 +75,7 @@ export default function App() {
 const styles = StyleSheet.create({
   logo: {
     flexDirection: 'row',
-    height:30,
+    height: 30,
     resizeMode: 'contain',
   },
   profile: {
